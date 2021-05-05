@@ -64,11 +64,15 @@ def game(attempts=10):
                     if value == char:
                         guessed[index] = char
                         used_letters.add(char)
+        elif char == 'quit':  # выход из игры в процессе игры
+            exit_from_game()
+
         elif char not in alphabet1:
             print("Введите букву русского алфавита!!!")
             print("\nИспользованные буквы: " + ' '.join(used_letters))
             continue
         else:
+            print("Такой буквы нет в слове!!!")
             attempts -= 1  # уменьшение кол-ва попыток
         used_letters.add(char)  # добавление буквы в множество использованных букв
         print("\nИспользованные буквы: " + ' '.join(used_letters))  # перечень введенных букв
